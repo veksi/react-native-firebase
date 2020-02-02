@@ -1,0 +1,114 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "prettier",
+    "prettier/react",
+    "prettier/babel"
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    // support import modules from TypeScript files in JavaScript files
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "polyfills": ["fetch", "Promise", "URL", "object-assign"]
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "off",
+    "dot-notation": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    "no-param-reassign": [1],
+    "consistent-return": [1],
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["external", "builtin"], "internal", ["parent", "sibling", "index"]
+        ]
+      }
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": ["const", "let", "var"],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ],
+    "@typescript-eslint/interface-name-prefix": ["error", {
+      "prefixWithI": "always"
+    }],
+    "@typescript-eslint/member-ordering": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/array-type": ["error", {
+      "default": "generic",
+      "readonly": "generic"
+    }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".jsx", ".js", ".ts", ".tsx"]
+      }
+    ],
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": ["error", {
+      "ignore": [],
+      "customValidators": [],
+      "skipUndeclared": true
+    }],
+    "react/jsx-fragments": ["error", "element"],
+    "react/no-array-index-key": "warn",
+    "jsx-a11y/anchor-is-valid": "warn"
+  },
+  "overrides": [{
+    "files": ["*.js", "*.jsx"],
+    "rules": {
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/camelcase": "off"
+    }
+  }]
+}
